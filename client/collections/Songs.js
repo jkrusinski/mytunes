@@ -9,6 +9,7 @@ var Songs = Backbone.Collection.extend({
     $.ajax ({
       url: 'http://parse.atx.hackreactor.com/mytunes/classes/songs',
       method: 'GET',
+
       success: function (data) {
         data.results.forEach(function (song) {
           context.add({
@@ -18,10 +19,10 @@ var Songs = Backbone.Collection.extend({
           });
         });
       },
+
       error: function (err) {
         console.log(err);
       }
     });
   }
-
 });

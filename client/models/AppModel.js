@@ -21,8 +21,9 @@ var AppModel = Backbone.Model.extend({
       this.get('songQueue').add(song);
     }, this);
 
-    // listen for selected event
-    //   trigger an event 'addToQueue' -> listen on songQueue
+    this.get('songQueue').on('stop', function() {
+      this.set('currentSong', null);
+    }, this);
   }
 
 });
